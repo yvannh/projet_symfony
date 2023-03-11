@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>Bienvenu {{ login }}</h2>
+
+    {% if contacts|length == 0 %}
+        <p>Vous n'avez pas de contacts</p>
+    {% else %}
+        <h2> Voici la liste de vos contacts : </h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Prenom</th>
+            </tr>
+            {% for u in contacts %}
+                <tr>
+                    <td> {{u.id}} </td>
+                    <td> {{u.login}} </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
